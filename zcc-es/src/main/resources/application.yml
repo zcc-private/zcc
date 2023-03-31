@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: enn-search-front
+  profiles:
+    active: common,euraka,ribbon,feign,hytrix
+server:
+  port: 6104
+
+service:
+  acc:
+    serve: enn-acc-serve
+  index:
+    serve: enn-index-serve
+  search:
+    serve: enn-search-serve
+ribbon:
+  eager-load:
+    enabled: true
+    clients: enn-acc-serve,enn-index-serve,enn-search-serve
+feign:
+  hystrix:
+    enabled: true
+elasticSearch:
+  name: elasticsearch
+#  hostlist:  10.39.65.24:9200,10.39.65.25:9201,10.39.65.26:9202  #集群ip端口都好分隔
+  hostlist:  localhost:9200
+  client:
+    user-agent: ACS/Search 1.0
+    connectNum: 10
+    connectPerRoute: 100
+  username:
+  password:

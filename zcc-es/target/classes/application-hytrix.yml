@@ -1,0 +1,21 @@
+hystrix:
+  shareSecurityContext: true
+  threadpool:
+    default:
+      coreSize: 10 # Hystrix 更改默认并发数配置
+      allowMaximumSizeToDivergeFromCoreSize: 20
+      maximumSize : 50
+  command:
+    default:
+      circuitBreaker:
+        sleepWindowInMilliseconds: 15000
+        forceClosed: true
+        #      fallback:
+        # 是否开启回退方法
+      #        enabled: true
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 15000

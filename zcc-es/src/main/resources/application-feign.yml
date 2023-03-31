@@ -1,0 +1,41 @@
+feign:
+  timeOut:
+    # 是否开启 Http Client
+    readTimeout: 15000
+    connectTimeout: 15000
+    writeTimeout: 15000
+  thread:
+    maxIdleConnections: 500
+    keepAliveDuration: 20
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false #关闭httpclient
+    # 配置连接池
+    max-connections: 500 #feign的最大连接数
+    max-connections-per-route: 50 #fegin单个路径的最大连接数
+
+  # 请求与响应的压缩以提高通信效率
+  compression:
+    request:
+      enabled: true
+      min-request-size: 2048
+      mime-types: text/xml,application/xml,application/json
+    response:
+      enabled: true
+
+  hystrix:
+    enabled: ${FEIGN_HYSTRIX_ENABLED:false}
+
+
+
+
+
+
+
+
+
+
+
+
+
