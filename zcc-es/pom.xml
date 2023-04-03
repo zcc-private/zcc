@@ -134,7 +134,7 @@
 
     </dependencies>
     <build>
-    <finalName>zc-est</finalName>
+    <finalName>zcc-es</finalName>
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
